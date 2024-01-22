@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { Login, Profile } from "./Components";
+import UserContextProvider from "./Context/UserContextProvider";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
+    <UserContextProvider>
       <div>heo</div>
-    </>
+      <Login />
+      <Profile />
+    </UserContextProvider>
   );
 }
 
