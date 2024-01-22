@@ -1,14 +1,17 @@
 import { ReactNode } from "react";
 import { useState } from "react";
 import UserContext from "./UserContext";
+import { UserContextType } from "./UserContext";
 
-function USerContextProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState("");
+function UserContextProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<any | null>(null);
+  const contextValue: UserContextType = {
+    user,
+    setUser,
+  };
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );
 }
 
-export default USerContextProvider;
+export default UserContextProvider;
